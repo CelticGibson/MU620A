@@ -58,11 +58,6 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 
-   // juce::AudioProcessorValueTreeState apvts;
-   // juce::AudioProcessorValueTreeState::ParameterLayout createParameters();
-    //foleys::MagicProcessorState magicState{ *this , apvts };
-
-
 private:
     //==============================================================================
 
