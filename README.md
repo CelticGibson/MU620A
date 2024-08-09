@@ -1,4 +1,4 @@
-<h2>This is a JUCE project of a Stereo Delay with Chorus and Low/Highpass</h2>
+<h2>MU620A: JUCE project of a Stereo Delay with Chorus and Low/Highpass filtering</h2>
 
 <img width="450" alt="image" src="https://github.com/user-attachments/assets/138c3ac9-9bf8-4687-9cde-ad639789ec1e">
 
