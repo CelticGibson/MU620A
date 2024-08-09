@@ -1,6 +1,11 @@
 This code is the implementation of a delay plugin built using the JUCE framework. The plugin provides a flexible stereo delay effect with various features, such as modulation, feedback, filtering, and syncing capabilities. 
 
-The plugin uses circular buffers to manage the delayed audio. It reads and writes to these buffers while applying the calculated delay time, feedback, and dry/wet mix. 
+The plugin uses circular buffers to manage the delayed audio. It reads and writes to these buffers while applying the calculated delay time, feedback, and dry/wet mix. Without linear interpolation, accessing non-integer sample positions in a circular buffer could lead to audio artifacts such as clicks or pops. These artifacts occur because the signal would jump abruptly between sample values. By using linear interpolation, the transition between samples is smoothed out, which is crucial for maintaining the integrity of the audio signal, especially in real-time audio effects like delay, chorus, and flanging.
+
+
+output = a*(1.0−t)+b*t
+
+The function computes the weighted average of a and b based on the fractional value stored in t. If t = 0 then the first sample value is read only. If t = 1 then return the sample held in b only. If t is between 0 and 1, then the sample values are porportionate between a and b. This alows for fractional samples to ensure a smooth transition.
 
 <b>Synchronised delay time:</b>
 Along with the manual delay time which is selectable by the user, the plugin can also synchronize delay times to the host's Beats Per Minute, allowing for rhythmically synced delays. The plugin offers a variety of musical note divisions for the delay time, which are selectable via the Sync Delay button. These divisions include standard note values like quarter notes (1/4), eighth notes (1/8), sixteenth notes (1/16), as well as dotted and triplet variations (e.g., 1/4D for a dotted quarter note or 1/4T for a quarter note triplet) and are all accessible via a drop down selection box.
@@ -22,9 +27,11 @@ tan = π*fc/fs
 
 a1 = tan−1/tan+1
 
+and then combined with the original dry signal with either postive or negative phase dependent on whether Low Pass (-1.0f) or High Pass (1.0f) is selected.
 
 
-<b>Chorus/LFO:</b> The plugin modulates the delay time using a low-frequency oscillator (LFO). The LFO is a sine wave that varies the delay time smoothly for each channel, creating a chorus effect. Additionally, a small random modulation is applied to both channels to introduce subtle variations and make the effect more natural.
+
+<b>Chorus/LFO:</b> The plugin modulates the delay time using a low-frequency oscillator (LFO). The LFO is a wrap around sine wave that varies the delay time smoothly for each channel, creating a chorus effect. Additionally, a small random modulation is applied to both channels to introduce subtle variations and make the effect more natural.
 
 <b>Parameters:</b>
 <ul>
@@ -40,4 +47,4 @@ a1 = tan−1/tan+1
 <li><b>Cutoff Frequency:</b></li>Sets the cutoff frequency for the filter applied to the delayed signal.
 </ul>
 
-The processBlock method is the core of the plugin's audio processing. It handles the real-time manipulation of the audio buffer, applying the delay effect with modulation and filtering.
+The processBlock method is the core of the plugin's audio processing. It handles the real-time input stream into the audio buffer, applying the delay effects with modulation and filtering and then sending the results to the output stream. 
