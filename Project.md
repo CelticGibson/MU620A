@@ -1,4 +1,4 @@
-<h3> The Code </h3>
+<h3> The Code Breakdown </h3>
 
 This code is the implementation of a delay plugin built using the JUCE framework. The plugin provides a flexible stereo delay effect with various features, such as modulation, feedback, filtering, and syncing capabilities. 
 
