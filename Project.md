@@ -1,3 +1,5 @@
+<h3> The Code </h3>
+
 This code is the implementation of a delay plugin built using the JUCE framework. The plugin provides a flexible stereo delay effect with various features, such as modulation, feedback, filtering, and syncing capabilities. 
 
 The plugin uses circular buffers to manage the delayed audio. It reads and writes to these buffers while applying the calculated delay time, feedback, and dry/wet mix. Without linear interpolation, accessing non-integer sample positions in a circular buffer could lead to audio artifacts such as clicks or pops. These artifacts occur because the signal would jump abruptly between sample values. By using linear interpolation, the transition between samples is smoothed out, which is crucial for maintaining the integrity of the audio signal, especially in real-time audio effects like delay, chorus, and flanging.
@@ -47,4 +49,6 @@ and then combined with the original dry signal with either postive or negative p
 <li><b>Cutoff Frequency:</b></li>Sets the cutoff frequency for the filter applied to the delayed signal.
 </ul>
 
-The processBlock method is the core of the plugin's audio processing. It handles the real-time input stream into the audio buffer, applying the delay effects with modulation and filtering and then sending the results to the output stream. 
+The process Block method is the core engine of the plugin's audio processing. It handles the real-time input stream into the audio buffer, applying the delay effects with modulation and filtering and then sending the results to the output stream. 
+
+If the plugin is used in a DAW, due to the <b>AudioProcessorValueTreeState</b>, which connects the parameters with each control surface, all parameters can be controlled in the DAW using automation envelopes. 
