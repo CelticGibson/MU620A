@@ -5,5 +5,5 @@
 For this project, I have chosen to recreate a stereo delay with chorus and Low/Highpass filter. 
 This project was written in the Juce Framework and can be downloaded and opened in the Projucer app. Once opened up in your IDE of choice, the project can be built to create either a stand-alone app or a VST plugin.
 
-For a more detailed breakdown of the code itself, please read Project.txt
+For a more detailed breakdown of the code itself, please read Project.md
 
