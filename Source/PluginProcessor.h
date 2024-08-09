@@ -121,17 +121,17 @@ private:
 
     juce::AudioProcessorValueTreeState parameters;
 
-    std::atomic<float>* MasterValue = nullptr;
+    	std::atomic<float>* MasterValue = nullptr;
 	std::atomic<float>* MixValue = nullptr;
 	std::atomic<float>* FeedbackValue = nullptr;
 	std::atomic<float>* DelayTimeValue = nullptr;
 	std::atomic<float>* PingPongEnabledValue = nullptr;
-    std::atomic<float>* SyncEnabledValue = nullptr;
-    std::atomic<float>* SyncSettingValue = nullptr;
-    std::atomic<float>* ChorusDepthValue = nullptr;
+    	std::atomic<float>* SyncEnabledValue = nullptr;
+    	std::atomic<float>* SyncSettingValue = nullptr;
+    	std::atomic<float>* ChorusDepthValue = nullptr;
 	std::atomic<float>* ChorusRateValue = nullptr;
 	std::atomic<float>* ChorusMixValue = nullptr;
-    std::atomic<float>* HighPassStateValue = nullptr;
+    	std::atomic<float>* HighPassStateValue = nullptr;
 	std::atomic<float>* CutOffFreqValue = nullptr;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DelayPluginAudioProcessor)
