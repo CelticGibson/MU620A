@@ -1,5 +1,7 @@
 This code is the implementation of a delay plugin built using the JUCE framework. The plugin provides a flexible stereo delay effect with various features, such as modulation, feedback, filtering, and syncing capabilities. 
 
+The plugin uses circular buffers to manage the delayed audio. It reads and writes to these buffers while applying the calculated delay time, feedback, and mix. Along with the manual delay time selectable by the user, the plugin can also synchronize delay times to the host's Beats Per Minute, allowing for rhythmically precise delays. The plugin accounts for mono/mono, mono/stereo and stereo/stereo routing to inputs and outputs of the host. If the input/output contain either mono/stereo or stereo/stereo then the ping pong effect can be used. A halving of the delay time of one of the channels will produce this effect.
+
 <b>Parameters:</b>
 <ul>
 <li><b>Master:</b></li>Controls the overall output level.
