@@ -27,11 +27,11 @@ tan = π*fc/fs
 
 a1 = tan−1/tan+1
 
-and then combined with the original dry signal with either postive or negative phase dependent on whether Low Pass (-1.0f) or High Pass (1.0f) is selected.
+and then combined with the original dry signal with either postive or negative phase dependent on whether Low Pass (-1.0f) or High Pass (1.0f) is selected. The cutoff frequency varies the centre point of the phase transition between dry and processed data and the output is the difference.
 
 
 
-<b>Chorus/LFO:</b> The plugin modulates the delay time using a low-frequency oscillator (LFO). The LFO is a wrap around sine wave that varies the delay time smoothly for each channel, creating a chorus effect. Additionally, a small random modulation is applied to both channels to introduce subtle variations and make the effect more natural.
+<b>Chorus/LFO:</b> The plugin modulates the delay time using a low-frequency oscillator (LFO). The LFO is a wrap around sine wave that varies the delay time smoothly for each channel by altering the phase over time, creating a chorus effect. Additionally, a small random modulation is applied to both channels to introduce subtle variations and make the effect more natural. 
 
 <b>Parameters:</b>
 <ul>
